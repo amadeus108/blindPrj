@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,13 +22,21 @@ public class HomeController {
 	private EmployeeService employeeService;
 
 	@GetMapping("index")
-	public String index(Model model) {
+	public String index(Model model,
+			@RequestParam(name="q", defaultValue="") String query,
+			@RequestParam(defaultValue="1") int page) {
 
 		// 채용공고 가져오기
-		List<RecruitNotice> recruitNoticeList = employeeService.getRecruitNoticeList();
+		List<RecruitNotice> recruitNoticeList = employeeService.getRecruitNoticeList(query, page);
 
 		model.addAttribute("recruitNoticeList", recruitNoticeList);
-
+		
+		//페이징
+		
+		
+		
+		
+		
 		return "employee.index";
 	}
 

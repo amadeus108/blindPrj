@@ -68,17 +68,17 @@ public class EmployeeService {
 	//채용공고 리스트 가져오기(index, 게시판)
 	public List<RecruitNotice> getRecruitNoticeList(){
 		
-		return recruitNoticeDao.getRecruitNoticeList("id", "", 1);
+		return recruitNoticeDao.getRecruitNoticeList();
 	}
 
-	public List<RecruitNotice> getRecruitNoticeList(String field){
+	public List<RecruitNotice> getRecruitNoticeList(String query){
 		
-		return recruitNoticeDao.getRecruitNoticeList(field, "", 1);
+		return recruitNoticeDao.getRecruitNoticeList(query);
 	}
 
-	public List<RecruitNotice> getRecruitNoticeList(String field, String query, int page){
+	public List<RecruitNotice> getRecruitNoticeList(String query, int page){
 		
-		return recruitNoticeDao.getRecruitNoticeList(field, query, page);
+		return recruitNoticeDao.getRecruitNoticeList(query, page);
 	}
 	
 	//전형구분 가져오기

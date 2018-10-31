@@ -43,10 +43,7 @@ public class GuestController {
 	public String signup(Employee employee, Applier applier, Admin admin) {
 
 		return "redirect:login";
-	
 	}
-
-	
 	
 		
 }

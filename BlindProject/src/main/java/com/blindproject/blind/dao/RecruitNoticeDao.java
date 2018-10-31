@@ -16,8 +16,8 @@ public interface RecruitNoticeDao {
 	
 	List<RecruitNotice> getRecruitNoticeList();
 	
-	List<RecruitNotice> getRecruitNoticeList(String field);
+	List<RecruitNotice> getRecruitNoticeList(String query);
 	
-	List<RecruitNotice> getRecruitNoticeList(String field, String query, int page);
+	List<RecruitNotice> getRecruitNoticeList(String query, int page);
 
 }

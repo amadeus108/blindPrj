@@ -41,6 +41,8 @@ public class RecruitNotice {
 	private String rdValue;
 	
 	private String tValue;
+	
+	private int rNum;
 
 	public int getId() {
 		return id;
@@ -145,6 +147,14 @@ public class RecruitNotice {
 	public void settValue(String tValue) {
 		this.tValue = tValue;
 	}
+	
+	public int getrNum() {
+		return rNum;
+	}
+
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
 
 	public RecruitNotice() {
 		super();
@@ -152,7 +162,7 @@ public class RecruitNotice {
 
 	public RecruitNotice(int id, String title, String contents, Date regDate, Date strDate, Date endDate,
 			int recruitDivisionId, int writerId, int typeId, int companyId, String cName, String rdValue,
-			String tValue) {
+			String tValue, int rNum) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -167,6 +177,7 @@ public class RecruitNotice {
 		this.cName = cName;
 		this.rdValue = rdValue;
 		this.tValue = tValue;
+		this.rNum = rNum;
 	}
 
 }

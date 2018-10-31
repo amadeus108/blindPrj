@@ -56,8 +56,8 @@ public class SecurityContextConfig extends WebSecurityConfigurerAdapter {
 		auth
 			.jdbcAuthentication()
 			.dataSource(dataSource)
-			.usersByUsernameQuery("select loginId id, pwd password, 1 enabled from blinddb2.Employee where loginId = ?")
-			.authoritiesByUsernameQuery("select loginId id, roleName authority from blinddb2.Employee where loginId = ?")
+			.usersByUsernameQuery("select loginId id, pwd password, 1 enabled from Employee where loginId = ?")
+			.authoritiesByUsernameQuery("select loginId id, roleName authority from Employee where loginId = ?")
 			.passwordEncoder(new BCryptPasswordEncoder());
 			// 회원가입 만들 것 
 	

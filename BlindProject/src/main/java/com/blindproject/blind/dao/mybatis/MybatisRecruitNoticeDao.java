@@ -53,24 +53,24 @@ public class MybatisRecruitNoticeDao implements RecruitNoticeDao {
 	
 		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
 		
-		return recruitNoticeDao.getRecruitNoticeList("id", "", 1);
+		return recruitNoticeDao.getRecruitNoticeList();
 	}
 
 	
 	@Override
-	public List<RecruitNotice> getRecruitNoticeList(String field) {
+	public List<RecruitNotice> getRecruitNoticeList(String query) {
 		
 		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
 		
-		return recruitNoticeDao.getRecruitNoticeList(field, "", 1);
+		return recruitNoticeDao.getRecruitNoticeList(query);
 	}
 	
 	@Override
-	public List<RecruitNotice> getRecruitNoticeList(String field, String query, int page) {
+	public List<RecruitNotice> getRecruitNoticeList(String query, int page) {
 		
 		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
 		
-		return recruitNoticeDao.getRecruitNoticeList(field, query, page);
+		return recruitNoticeDao.getRecruitNoticeList(query, page);
 	}
 
 }
