@@ -21,6 +21,7 @@
 		</div>
 		<div>
 			<input type="button" value="수정" onclick="location.href='edit?id=${rnd.id}'"/>
+			<input type="button" value="목록" onclick="location.href='index'"/>
 		</div>
 	</section>
 </main>

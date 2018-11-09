@@ -23,7 +23,7 @@ public class ServiceContextConfig {
 		
 		/* Mysql or mariaDB*/
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://211.238.142.33:3306/blinddb2?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/blinddb?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC");
 		dataSource.setUsername("blind");
 		dataSource.setPassword("0000");
 		

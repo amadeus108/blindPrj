@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.blindproject.blind.dao.RecruitNoticeDao;
-import com.blindproject.blind.dao.EmployeeDao;
 import com.blindproject.blind.entity.RecruitNotice;
 
 @Repository
@@ -38,6 +37,14 @@ public class MybatisRecruitNoticeDao implements RecruitNoticeDao {
 		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
 		
 		return recruitNoticeDao.deleteRecruitNotice(id);
+	}
+	
+	@Override
+	public int countArticle(String query) {
+		
+		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
+		
+		return recruitNoticeDao.countArticle(query);
 	}
 	
 	@Override

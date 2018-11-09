@@ -24,18 +24,17 @@ public class HomeController {
 	@GetMapping("index")
 	public String index(Model model,
 			@RequestParam(name="q", defaultValue="") String query,
-			@RequestParam(defaultValue="1") int page) {
+			@RequestParam(name="p", defaultValue="1") int page) {
 
 		// 채용공고 가져오기
 		List<RecruitNotice> recruitNoticeList = employeeService.getRecruitNoticeList(query, page);
 
 		model.addAttribute("recruitNoticeList", recruitNoticeList);
 		
-		//페이징
-		
-		
-		
-		
+		// 게시글 수 카운트
+//		int countArticle = employeeService.countArticle(query);
+//		model.addAttribute("count", countArticle);
+//		System.out.println(countArticle);
 		
 		return "employee.index";
 	}
