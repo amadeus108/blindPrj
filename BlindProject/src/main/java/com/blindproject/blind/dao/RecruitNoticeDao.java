@@ -12,8 +12,6 @@ public interface RecruitNoticeDao {
 	
 	public int deleteRecruitNotice(int id);
 	
-	public int countArticle(String query);
-	
 	public RecruitNotice getRecruitNotice(int id);
 	
 	public List<RecruitNotice> getRecruitNoticeList();
@@ -22,4 +20,5 @@ public interface RecruitNoticeDao {
 	
 	public List<RecruitNotice> getRecruitNoticeList(String query, int page);
 
+	public int countArticle(String query);
 }

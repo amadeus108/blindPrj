@@ -14,9 +14,9 @@
 				<input type="submit" value="검색" />
 			</form>
 		</div>
-<!-- 		<div> -->
-<%-- 			<p>${count}개의 게시물이 있습니다.</p> --%>
-<!-- 		</div> -->
+		<div>
+			<span>${count}개의 게시물이 있습니다.</span>
+		</div>
 		<table class="rn-table">
 			<tr class="rn-list">
 				<th class="rn-items">No.</th>
@@ -45,17 +45,17 @@
 				<!-- 처음 들어가면 1페이지부터 전체 리스트가 모두 나옴
 					검색어를 입력한 경우, 1페이지를 누르면 검색한 후의 1페이지가 나와야한다.
 					 -->
-<%-- 				<c:forEach var="p" items="page"> --%>
-<!-- 					<li><a href=""></a></li> -->
+<%-- 				<c:set var="startNum" value="${count}"/> --%>
+<%-- 				<c:forEach var="i" begin="${startNum}" end="${lastNum}"> --%>
+<%-- 					<li><a name="p" href="?p=${i}">${i}</a></li> --%>
 <%-- 				</c:forEach> --%>
-				
 				<li><a name="p" href="?p=1">1</a></li>
 				<li><a name="p" href="?p=2">2</a></li>
 				<li><a name="p" href="?p=3">3</a></li>
 				<li><a href="">4</a></li>
 			</ul>
 		</div>
-		<input type="button" class="add-btn" value="추가" onclick="location.href='recruit'"/>
+		<input type="button" class="add-btn" value="추가" />
 	</section>
 </main>
 

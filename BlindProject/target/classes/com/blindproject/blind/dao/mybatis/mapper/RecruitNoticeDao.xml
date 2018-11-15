@@ -22,10 +22,11 @@
 		WHERE id = #{id}
 	</update>
 	
-<!-- 	<select id="countArticle" resultType="_int"> -->
-<!-- 		SELECT count(*) as count from rn_list -->
-<!-- 		WHERE title like '%${param1}%' -->
-<!-- 	</select> -->
+	<select id="countArticle" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM rn_list
+		WHERE title like '%${value}%'
+	</select>
 	
 	<select id="getRecruitNotice" resultType="com.blindproject.blind.entity.RecruitNotice">
 		SELECT

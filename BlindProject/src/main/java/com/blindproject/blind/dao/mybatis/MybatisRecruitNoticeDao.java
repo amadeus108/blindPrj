@@ -38,15 +38,7 @@ public class MybatisRecruitNoticeDao implements RecruitNoticeDao {
 		
 		return recruitNoticeDao.deleteRecruitNotice(id);
 	}
-	
-	@Override
-	public int countArticle(String query) {
-		
-		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
-		
-		return recruitNoticeDao.countArticle(query);
-	}
-	
+
 	@Override
 	public RecruitNotice getRecruitNotice(int id) {
 		
@@ -78,6 +70,14 @@ public class MybatisRecruitNoticeDao implements RecruitNoticeDao {
 		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
 		
 		return recruitNoticeDao.getRecruitNoticeList(query, page);
+	}
+	
+	@Override
+	public int countArticle(String query) {
+		
+		RecruitNoticeDao recruitNoticeDao = sqlSession.getMapper(RecruitNoticeDao.class);
+		
+		return recruitNoticeDao.countArticle(query);
 	}
 
 }

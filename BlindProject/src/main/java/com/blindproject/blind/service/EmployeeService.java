@@ -58,12 +58,6 @@ public class EmployeeService {
 		
 		return 0;
 	}
-	
-	//게시글 수 가져오기
-	public int countArticle(String query) {
-		
-		return recruitNoticeDao.countArticle(query);
-	}
 
 	//채용공고 정보 가져오기(detail 페이지)
 	public RecruitNotice getRecruitNotice(int id) {
@@ -84,11 +78,17 @@ public class EmployeeService {
 
 	public List<RecruitNotice> getRecruitNoticeList(String query, int page){
 		
-		//페이징
-		int startPage;
-		startPage = (page-1)*5;
+		//한 페이지에 게시글 몇개 나타낼지
+		int pageNum;
+		pageNum = (page-1)*5;
 		
-		return recruitNoticeDao.getRecruitNoticeList(query, startPage);
+		return recruitNoticeDao.getRecruitNoticeList(query, pageNum);
+	}
+	
+	//게시글 수 카운트
+	public int countArticle(String query) {
+		
+		return recruitNoticeDao.countArticle(query);
 	}
 	
 	//전형구분 가져오기
