@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="../resources/js/employee/index.js"></script>
-
 <main id="main">
 	<h1 class="hidden">채용 담당자 페이지</h1>
 	<section id="section">
@@ -15,7 +14,7 @@
 			</form>
 		</div>
 		<div>
-			<span>${count}개의 게시물이 있습니다.</span>
+			<p>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</p>
 		</div>
 		<table class="rn-table">
 			<tr class="rn-list">
@@ -40,21 +39,26 @@
 				</tr>				
 			</c:forEach>
 		</table>
-		<div>
-			<ul>
-				<!-- 처음 들어가면 1페이지부터 전체 리스트가 모두 나옴
-					검색어를 입력한 경우, 1페이지를 누르면 검색한 후의 1페이지가 나와야한다.
-					 -->
-<%-- 				<c:set var="startNum" value="${count}"/> --%>
-<%-- 				<c:forEach var="i" begin="${startNum}" end="${lastNum}"> --%>
-<%-- 					<li><a name="p" href="?p=${i}">${i}</a></li> --%>
-<%-- 				</c:forEach> --%>
-				<li><a name="p" href="?p=1">1</a></li>
-				<li><a name="p" href="?p=2">2</a></li>
-				<li><a name="p" href="?p=3">3</a></li>
-				<li><a href="">4</a></li>
-			</ul>
-		</div>
+<!-- 		<div> -->
+<%-- 			<p>총 게시물 수는 ${page.getTotalCount()} 입니다.</p> --%>
+<%-- 			<p>현재 페이지 번호는 ${page.getPageNum()} 입니다.</p> --%>
+<%-- 			<p>현재 블록 번호는 ${page.getCurrentBlock()} 입니다.</p> --%>
+<!-- 		</div> -->
+		<table>
+			<tr>
+				<td>
+					<c:if test="${page.prev}">
+						<a href="?q=${param.q}&p=${page.getStartPage()-1}">&laquo;</a>
+					</c:if>
+					<c:forEach var="idx" begin="${page.getStartPage()}" end="${page.getEndPage()}">
+						<a href="?q=${param.q}&p=${idx}">${idx}</a>
+					</c:forEach>
+					<c:if test="${page.next}">
+						<a href="?q=${param.q}&p=${page.getEndPage()+1}">&raquo;</a>
+					</c:if>
+				</td>
+			</tr>
+		</table>
 		<input type="button" class="add-btn" value="추가" />
 	</section>
 </main>
