@@ -3,20 +3,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="../resources/js/employee/index.js"></script>
+
 <main id="main">
 	<h1 class="hidden">채용 담당자 페이지</h1>
 	<section id="section">
 		<div class="search-bar">
+			<span>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</span>
 			<form method="GET">
-				<input type="text" name="q" value=""/>
-				<input type="submit" value="검색" />
+				<input type="text" name="q" value="" class="form-control" placeholder="Search for..."/>
+				<input type="submit" class="btn btn-default" value="검색" />
 			</form>
 		</div>
-		<div>
-			<p>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</p>
-		</div>
-		<table class="rn-table">
+		
+<!-- 		<div class="col-lg-6 search-bar"> -->
+<%-- 			<span>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</span> --%>
+<!-- 			<div class="input-group"> -->
+<!-- 				<input type="text" name="q" value="" class="form-control" placeholder="Search for..." aria-label="Search for..."> -->
+<!-- 				<span class="input-group-btn"> -->
+<!-- 			    	<button class="btn btn-secondary" type="button">검색</button> -->
+<!-- 				</span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+		<table class="table rn-table">
 			<tr class="rn-list">
 				<th class="rn-items">No.</th>
 				<th class="rn-items">회사명</th>
@@ -28,7 +39,7 @@
 				<!-- <th class="rn-items">지원자 수</th> -->
 			</tr>
 			<c:forEach var="rnl" items="${recruitNoticeList}">
-				<tr>
+				<tr class="rn-list">
 					<td class="rn-items">${rnl.rNum}</td>
 					<td class="rn-items">${rnl.cName}</td>
 					<td class="rn-items-l"><a href="detail?id=${rnl.id}">${rnl.title}</a></td>
@@ -39,27 +50,37 @@
 				</tr>				
 			</c:forEach>
 		</table>
-<!-- 		<div> -->
-<%-- 			<p>총 게시물 수는 ${page.getTotalCount()} 입니다.</p> --%>
-<%-- 			<p>현재 페이지 번호는 ${page.getPageNum()} 입니다.</p> --%>
-<%-- 			<p>현재 블록 번호는 ${page.getCurrentBlock()} 입니다.</p> --%>
-<!-- 		</div> -->
-		<table>
-			<tr>
-				<td>
+<!-- 		<table class="paging"> -->
+<!-- 			<tr> -->
+<!-- 				<td> -->
+<%-- 					<c:if test="${page.prev}"> --%>
+<%-- 						<a href="?q=${param.q}&p=${page.getStartPage()-1}">&laquo;</a> --%>
+<%-- 					</c:if> --%>
+<%-- 					<c:forEach var="idx" begin="${page.getStartPage()}" end="${page.getEndPage()}"> --%>
+<%-- 						<a href="?q=${param.q}&p=${idx}">${idx}</a> --%>
+<%-- 					</c:forEach> --%>
+<%-- 					<c:if test="${page.next}"> --%>
+<%-- 						<a href="?q=${param.q}&p=${page.getEndPage()+1}">&raquo;</a> --%>
+<%-- 					</c:if> --%>
+<!-- 				</td> -->
+<!-- 			</tr> -->
+<!-- 		</table> -->
+		<div class="paging">
+			<button type="button" class="add-btn btn btn-default">글쓰기</button>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
 					<c:if test="${page.prev}">
-						<a href="?q=${param.q}&p=${page.getStartPage()-1}">&laquo;</a>
+						<li class="page-item disabled"><a class="page-link" href="?q=${param.q}&p=${page.getStartPage()-1}" tabindex="-1">&laquo;</a></li>
 					</c:if>
 					<c:forEach var="idx" begin="${page.getStartPage()}" end="${page.getEndPage()}">
-						<a href="?q=${param.q}&p=${idx}">${idx}</a>
+						<li class="page-item"><a class="page-link" href="?q=${param.q}&p=${idx}">${idx}</a></li>
 					</c:forEach>
 					<c:if test="${page.next}">
-						<a href="?q=${param.q}&p=${page.getEndPage()+1}">&raquo;</a>
+						<li class="page-item"><a class="page-link" href="?q=${param.q}&p=${page.getEndPage()+1}">&raquo;</a></li>
 					</c:if>
-				</td>
-			</tr>
-		</table>
-		<input type="button" class="add-btn" value="추가" />
+				</ul>
+			</nav>
+		</div>
 	</section>
 </main>
 
