@@ -118,7 +118,7 @@ public class RecruitController {
 		
 		employeeService.updateRecruitNotice(recruitNotice);
 		
-		return "redirect:index";
+		return "redirect:detail?id="+id;
 	}
 
 }

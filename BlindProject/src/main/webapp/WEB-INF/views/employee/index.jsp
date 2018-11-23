@@ -4,28 +4,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="../resources/css/employee/index.css" type="text/css" rel="stylesheet" />
 <script src="../resources/js/employee/index.js"></script>
 
 <main id="main">
 	<h1 class="hidden">채용 담당자 페이지</h1>
 	<section id="section">
 		<div class="search-bar">
-			<span>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</span>
+<%-- 			<span>총 <span class="bold">${page.getTotalCount()}</span> 개의 게시물이 있습니다.</span> --%>
+			<span>총 <b>${page.getTotalCount()}</b> 개의 게시물이 있습니다.</span>
 			<form method="GET">
+				<select name="s" class="form-control select-s" id="exampleFormControlSelect1">
+					<option value="title">제목</option>
+					<option value="companyId">회사명</option>
+				</select>
 				<input type="text" name="q" value="" class="form-control" placeholder="Search for..."/>
 				<input type="submit" class="btn btn-default" value="검색" />
 			</form>
 		</div>
-		
-<!-- 		<div class="col-lg-6 search-bar"> -->
-<%-- 			<span>총 ${page.getTotalCount()} 개의 게시물이 있습니다.</span> --%>
-<!-- 			<div class="input-group"> -->
-<!-- 				<input type="text" name="q" value="" class="form-control" placeholder="Search for..." aria-label="Search for..."> -->
-<!-- 				<span class="input-group-btn"> -->
-<!-- 			    	<button class="btn btn-secondary" type="button">검색</button> -->
-<!-- 				</span> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
 		
 		<table class="table rn-table">
 			<tr class="rn-list">
@@ -50,23 +46,8 @@
 				</tr>				
 			</c:forEach>
 		</table>
-<!-- 		<table class="paging"> -->
-<!-- 			<tr> -->
-<!-- 				<td> -->
-<%-- 					<c:if test="${page.prev}"> --%>
-<%-- 						<a href="?q=${param.q}&p=${page.getStartPage()-1}">&laquo;</a> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:forEach var="idx" begin="${page.getStartPage()}" end="${page.getEndPage()}"> --%>
-<%-- 						<a href="?q=${param.q}&p=${idx}">${idx}</a> --%>
-<%-- 					</c:forEach> --%>
-<%-- 					<c:if test="${page.next}"> --%>
-<%-- 						<a href="?q=${param.q}&p=${page.getEndPage()+1}">&raquo;</a> --%>
-<%-- 					</c:if> --%>
-<!-- 				</td> -->
-<!-- 			</tr> -->
-<!-- 		</table> -->
 		<div class="paging">
-			<button type="button" class="add-btn btn btn-default">글쓰기</button>
+			<button type="button" class="add-btn btn btn-default">공고 추가</button>
 			<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-end">
 					<c:if test="${page.prev}">

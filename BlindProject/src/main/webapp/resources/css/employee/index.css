@@ -40,9 +40,12 @@ input{
 
 #section{
 	display: inline-block;
-/* 	border: 1px solid blue; */
 	box-sizing: border-box;
-	margin: 10% 10%;
+	margin: 10% 13%;
+}
+
+.select-s{
+	width: 80px !important;
 }
 
 .table{
@@ -86,6 +89,7 @@ input{
 		display: flex;
 	}
 
+
 /*----- paging -----*/
 .paging{
 	display: flex;
@@ -97,12 +101,9 @@ input{
 	color: #337ab7 !important;
 }
 .add-btn{
-	height: 30px;
+	height: 34px;
 	margin: 20px 0;
 }
-
-
-
 
 
 

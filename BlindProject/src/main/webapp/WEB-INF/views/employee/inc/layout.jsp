@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../resources/css/employee/index.css" type="text/css" rel="stylesheet" />
 <title>채용 담당자 페이지</title>
 </head>
 <body>
